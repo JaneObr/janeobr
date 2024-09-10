@@ -3,10 +3,12 @@
 grep -oE '^[^:]+' /etc/passwd | sort
 ```
 
-№2
+# №2
+```
 cat /etc/protocols | awk '{print $2, $1}' | sort -nr | head -5
-
-№3
+```
+# №3
+```
 #!/bin/bash
 
 msg="$1"
@@ -15,17 +17,20 @@ border="+$(printf '%0.s-' $(seq ${#msg} + 2))+"
 echo "$border"
 echo "| $msg |"
 echo "$border"
-
-№4
+```
+# №4
+```
 grep -o '\b[a-zA-Z_][a-zA-Z0-9_]*\b' hello.py | sort | uniq
-
-№5
+```
+# №5
+```
 #!/bin/bash
 
 chmod +x "$1"
 sudo cp "$1" /usr/local/bin/
-
-№6
+```
+# №6
+```
 #!/bin/bash
 
 # Обрабатываем каждый переданный файл
@@ -42,15 +47,20 @@ for file in "$@"; do
     fi
   fi
 done
-
-№7
+```
+# №7
+```
 find "$1" -type f -exec md5sum {} + | sort | uniq -w32 -dD
-
-№8
+```
+# №8
+```
 find . -name "*.$1" -print0 | tar -cvzf archive.tar.qz --null -T -
-
-№9
+```
+# №9
+```
 sed 's/    /\t/g' "$1" > "$2"
-
-№10
+```
+# №10
+```
 find "$1"-type f -empty -name "*.txt"
+```
