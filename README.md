@@ -10,21 +10,25 @@ cat /etc/protocols | awk '{print $2, $1}' | sort -nr | head -5
 # №3
 ```
 #!/bin/bash
-
-text=$*
-length=${#text}
-
-for i in $(seq 1 $((length + 2))); do
-    line+="-"
+text=$1
+size=${#text}
+echo -n "+"
+for ((i = -2; i < size; i++))
+do
+echo -n "-"
 done
-
-echo "+${line}+"
-echo "| ${text} |"
-echo "+${line}+"
+echo "+"
+echo "| $text |"
+echo -n "+"
+for ((i = -2; i < size; i++))
+do
+echo -n "-"
+done
+echo "+"
 ```
 # №4
 ```
-grep -o '\b[a-zA-Z_][a-zA-Z0-9_]*\b' hello.py | sort | uniq
+grep -oE '\b[a-zA-Z_][a-zA-Z0-9_]*\b' hello.go | grep -vE '\b(int|void|return|if|else|for|while|include|stdio)\b' | sort | uniq
 ```
 # №5
 ```
@@ -35,22 +39,7 @@ sudo cp "$file" /usr/local/bin/
 ```
 # №6
 ```
-#!/bin/bash
 
-# Обрабатываем каждый переданный файл
-for file in "$@"; do
-  # Проверяем, что файл имеет одно из указанных расширений
-  if [[ "$file" =~ \.(c|js|py)$ ]]; then
-    # Считываем первую строку файла
-    first_line=$(head -n 1 "$file")
-    # Проверяем, начинается ли первая строка с символов комментариев
-    if [[ "$first_line" =~ ^# ]] || [[ "$first_line" =~ ^// ]]; then
-      echo "File $file has a comment in the first line."
-    else
-      echo "File $file does not have a comment in the first line."
-    fi
-  fi
-done
 ```
 # №7
 ```
