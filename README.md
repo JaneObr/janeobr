@@ -29,9 +29,9 @@ grep -o '\b[a-zA-Z_][a-zA-Z0-9_]*\b' hello.py | sort | uniq
 # №5
 ```
 #!/bin/bash
-
-chmod +x "$1"
-sudo cp "$1" /usr/local/bin/
+file=$1
+chmod 755 "./$file"
+sudo cp "$file" /usr/local/bin/
 ```
 # №6
 ```
