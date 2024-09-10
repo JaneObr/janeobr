@@ -11,12 +11,16 @@ cat /etc/protocols | awk '{print $2, $1}' | sort -nr | head -5
 ```
 #!/bin/bash
 
-msg="$1"
-border="+$(printf '%0.s-' $(seq ${#msg} + 2))+"
+text=$*
+length=${#text}
 
-echo "$border"
-echo "| $msg |"
-echo "$border"
+for i in $(seq 1 $((length + 2))); do
+    line+="-"
+done
+
+echo "+${line}+"
+echo "| ${text} |"
+echo "+${line}+"
 ```
 # №4
 ```
