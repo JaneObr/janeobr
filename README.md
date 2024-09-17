@@ -1,13 +1,15 @@
 # №1
-Вывести отсортированный в алфавитном порядке список имен пользователей в файле passwd (вам понадобится grep).
+```
+# grep -E '^[^:]+' /etc/passwd | sort
+```
 ![IMAGE 2024-09-16 23:28:29](https://github.com/user-attachments/assets/5334ca29-f16c-4ee5-86b1-da95783666f5)
-
-
 
 # №2
 ```
-cat /etc/protocols | awk '{print $2, $1}' | sort -nr | head -5
+~#cat /etc/protocols | awk '{print $2, $1}' | sort -nr | head -5
 ```
+![IMAGE 2024-09-16 23:28:31](https://github.com/user-attachments/assets/e7f91315-cefc-4c09-82e7-2969e7b0fff5)
+
 # №3
 ```
 #!/bin/bash
@@ -27,6 +29,8 @@ echo -n "-"
 done
 echo "+"
 ```
+<img width="564" alt="image" src="https://github.com/user-attachments/assets/e7bde14d-cfc4-408d-a231-62f8b3e1f06e">
+
 # №4
 ```
 grep -oE '\b[a-zA-Z_][a-zA-Z0-9_]*\b' hello.go | grep -vE '\b(int|void|return|if|else|for|while|include|stdio)\b' | sort | uniq
